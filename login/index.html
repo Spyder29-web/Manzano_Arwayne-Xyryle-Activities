@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register / Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="back-btn">
+    <button onclick="goBack()">Back</button>
+</div>
+
+<div class="container">
+    <h2>LOGIN</h2>
+
+    <!-- Message area -->
+    <div id="messageBox" class="message"></div>
+
+    <form onsubmit="registerUser(); return false;">
+        <input type="text" id="username" placeholder="Username" required>
+
+        <input type="password" id="password" placeholder="Password" required>
+
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+        <button type="submit" class="register">Register</button>
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

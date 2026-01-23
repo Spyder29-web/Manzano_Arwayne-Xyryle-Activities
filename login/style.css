@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+}
+
+.back-btn {
+    margin: 20px;
+}
+
+.back-btn button {
+    background: #5da9ff;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container {
+    width: 350px;
+    height: 500px;
+    background: #74206f;
+    margin: 40px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.message {
+    margin-bottom: 20px;
+}
+
+.success {
+    background: #4cd964;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.error {
+    background: #ff4d4d;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+button.register {
+    background: #e28ad8;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
