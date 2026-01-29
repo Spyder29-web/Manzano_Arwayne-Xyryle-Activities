@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robotic Calculator</title>
+  <link rel="stylesheet" href="/css/calculator.css">
+</head>
+<body>
+
+<div class="calculator">
+  <h1 class="title">CALCULATOR</h1>
+
+  <div class="display-wrapper">
+    <div id="numBox">0</div>
+    <div id="opBox"></div>
+  </div>
+
+  <div class="keys">
+    <!-- Row 1 -->
+    <button class="num" data-num="7">7</button>
+    <button class="num" data-num="8">8</button>
+    <button class="num" data-num="9">9</button>
+    <button class="op" data-op="÷">÷</button>
+
+    <!-- Row 2 -->
+    <button class="num" data-num="4">4</button>
+    <button class="num" data-num="5">5</button>
+    <button class="num" data-num="6">6</button>
+    <button class="op" data-op="×">×</button>
+
+    <!-- Row 3 -->
+    <button class="num" data-num="1">1</button>
+    <button class="num" data-num="2">2</button>
+    <button class="num" data-num="3">3</button>
+    <button class="op" data-op="-">−</button>
+
+    <!-- Row 4 -->
+    <button class="num" data-num="0">0</button>
+    <button class="num" data-num=".">.</button>
+    <button id="equals">=</button>
+    <button class="op" data-op="+">+</button>
+
+    <!-- Bottom -->
+    <button id="ac">AC</button>
+    <button id="c">C</button>
+  </div>
+</div>
+
+<script src="/js/calculator.js"></script>
+</body>
+</html>

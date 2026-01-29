@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  background: #ffffff;
+  width: 320px;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #ddd;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Display */
+.display-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#numBox {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 15px;
+  font-size: 28px;
+  text-align: right;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+#opBox {
+  width: 50px;
+  background: #f9f9f9;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+button {
+  height: 55px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #eaeaea;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #dcdcdc;
+}
+
+button:active {
+  background: #cfcfcf;
+}
+
+/* Operators */
+.op {
+  background: #d6d6d6;
+  font-weight: bold;
+}
+
+/* Equals */
+#equals {
+  background: #333;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* AC & C */
+#ac, #c {
+  grid-column: span 2;
+  background: #ffd966;
+  font-weight: bold;
+}
