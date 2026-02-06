@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grading System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <div class="top-nav">
+            <div class="mask-brand">
+                <div class="icon-circle">😷</div>
+                <div class="brand-text">
+                    <strong>WEAR YOUR</strong><br>FACE MASK
+                </div>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search student name...">
+                <button onclick="searchStudent()" class="btn-primary">Search</button>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <button class="btn-filter" onclick="filterByStatus('Present')">Present</button>
+            <button class="btn-filter" onclick="filterByStatus('Absent')">Absent</button>
+            <button class="btn-filter" onclick="filterByStatus('Passed')">Passed</button>
+            <button class="btn-filter" onclick="filterByStatus('Failed')">Failed</button>
+            <button class="btn-filter reset" onclick="renderTable(students)">Show All</button>
+        </div>
+
+        <div class="table-card">
+            <table id="gradeTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Sub1</th>
+                        <th>Sub2</th>
+                        <th>Sub3</th>
+                        <th>Avg</th>
+                        <th>Remark</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
