@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <header class="header">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <h1 class="system-title">INVENTORY SYSTEM</h1>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div id="user-info-container"></div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button class="btn btn-logout" onclick="logout()">LOGOUT</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 sidebar">
+                <nav class="nav-menu">
+                    <button class="nav-btn active" onclick="showDashboard()">
+                        <i class="fas fa-tachometer-alt"></i> DASHBOARD
+                    </button>
+                    <button class="nav-btn" onclick="showItems()">
+                        <i class="fas fa-box"></i> ITEMS
+                    </button>
+                    <button class="nav-btn" onclick="showCategories()">
+                        <i class="fas fa-tags"></i> CATEGORIES
+                    </button>
+                    <button class="nav-btn" onclick="showUnits()">
+                        <i class="fas fa-balance-scale"></i> UNITS
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10 main-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Dashboard</h2>
+                        <p>Welcome to the Inventory System</p>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h3 id="total-items">0</h3>
+                            <p>Total Items</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="total-categories">0</h3>
+                            <p>Categories</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="total-units">0</h3>
+                            <p>Units</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Items Section -->
+                <section id="items-section" class="content-section" style="display: none;">
+                    <div class="section-header">
+                        <h2>Items Management</h2>
+                    </div>
+                    
+                    <div class="controls-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control search-bar" placeholder="Search items..." id="search-items" onkeyup="searchItems()">
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button class="btn btn-add" onclick="showAddItemModal()">
+                                    <i class="fas fa-plus"></i> Add Item
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NAME</th>
+                                    <th>UNIT</th>
+                                    <th>CATEGORY</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="items-table-body">
+                                <!-- Items will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Categories Section -->
+                <section id="categories-section" class="content-section" style="display: none;">
+                    <div class="section-header">
+                        <h2>Categories Management</h2>
+                    </div>
+                    
+                    <div class="controls-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control search-bar" placeholder="Search categories..." id="search-categories" onkeyup="searchCategories()">
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button class="btn btn-add" onclick="showAddCategoryModal()">
+                                    <i class="fas fa-plus"></i> Add Category
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NAME</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categories-table-body">
+                                <!-- Categories will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Units Section -->
+                <section id="units-section" class="content-section" style="display: none;">
+                    <div class="section-header">
+                        <h2>Units Management</h2>
+                    </div>
+                    
+                    <div class="controls-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control search-bar" placeholder="Search units..." id="search-units" onkeyup="searchUnits()">
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button class="btn btn-add" onclick="showAddUnitModal()">
+                                    <i class="fas fa-plus"></i> Add Unit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NAME</th>
+                                    <th>SYMBOL</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="units-table-body">
+                                <!-- Units will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div class="modal fade" id="addItemModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addItemForm">
+                        <div class="mb-3">
+                            <label for="itemName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="itemName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="itemUnit" class="form-label">Unit</label>
+                            <select class="form-control" id="itemUnit" required>
+                                <option value="">Select Unit</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="itemCategory" class="form-label">Category</label>
+                            <select class="form-control" id="itemCategory" required>
+                                <option value="">Select Category</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addItem()">Add Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal fade" id="addCategoryModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addCategoryForm">
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="categoryName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="categoryDescription" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addCategory()">Add Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Unit Modal -->
+    <div class="modal fade" id="addUnitModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Unit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUnitForm">
+                        <div class="mb-3">
+                            <label for="unitName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="unitName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="unitSymbol" class="form-label">Symbol</label>
+                            <input type="text" class="form-control" id="unitSymbol" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addUnit()">Add Unit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
